@@ -1,6 +1,7 @@
 type Props = {
   src: string;
   className?: string;
-  alt?: string;
+  alt: string;
+  onClick?: () => void;
 };
 export default Props;

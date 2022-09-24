@@ -1,23 +1,12 @@
 import { useState } from "react";
 
 import Table from "react-bootstrap/Table";
+import Row from "./employee-row";
+import RowsSelect from "./pagination-select";
 
 import Props from "./types";
-import { Employee } from "@types";
 
 import "./styles.scss";
-
-const getRow = (employee: Employee, index: number) => {
-  const key = `employee-${index}`;
-  return (
-    <tr key={key}>
-      <td>{employee.name}</td>
-      <td>{employee.age}</td>
-      <td>{employee.salary}</td>
-      <td>{"ACCIONES"}</td>
-    </tr>
-  );
-};
 
 const EmployeeList = ({ employees }: Props) => {
   const [offset, setOffset] = useState<number>(0);
@@ -27,7 +16,7 @@ const EmployeeList = ({ employees }: Props) => {
 
   return (
     <>
-      <Table className="employee-list" hover>
+      <Table className="employee-list">
         <thead>
           <tr className="employee-list__header">
             <th>NOMBRE</th>
@@ -36,9 +25,15 @@ const EmployeeList = ({ employees }: Props) => {
             <th>ACCIONES</th>
           </tr>
         </thead>
-        <tbody>{currentEmployees.map(getRow)}</tbody>
+        <tbody>
+          {currentEmployees.map((x, index) => (
+            <Row key={`row-${index}`} employee={x} />
+          ))}
+        </tbody>
       </Table>
-      <div className="footer-list">TEST</div>
+      <div className="footer-list">
+        <RowsSelect numberRows={numberRows} setNumberRows={setNumberRows} />
+      </div>
     </>
   );
 };

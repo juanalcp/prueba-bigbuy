@@ -1,9 +1,12 @@
 import Props from "./types";
 
-const Icon = ({ src, className, alt }: Props) => {
+import "./styles.scss";
+
+const Icon = ({ src, className, alt, onClick }: Props) => {
+  const completedClassName = onClick ? "icon-container" : "";
   return (
-    <div className={className}>
-      <img src={src} alt={alt} />
+    <div className={` ${completedClassName} ${className ? className : ""}`}>
+      <img src={src} alt={alt} onClick={onClick} />
     </div>
   );
 };

@@ -9,6 +9,17 @@
 
   td {
     @include p-regular;
+    div {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .actions-cell {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
   }
 }
 

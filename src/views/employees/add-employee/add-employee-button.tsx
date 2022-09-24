@@ -12,7 +12,7 @@ const AddEmployeeButton = () => (
     onClick={() => console.log("Creating new employee")}
   >
     <div>
-      <Icon src={addUser} />
+      <Icon src={addUser} alt={addUser} />
       <span>Nuevo empleado</span>
     </div>
   </Button>
