@@ -1,6 +1,6 @@
 type Props = {
   src: string;
   className?: string;
-  alt: string;
+  alt?: string;
 };
 export default Props;

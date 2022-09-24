@@ -9,7 +9,7 @@ const Employees = () => {
   };
 
   return (
-    <Card className="main-container__card">
+    <Card className="card">
       <FilterForm handleFilter={onFilter} />
     </Card>
   );
