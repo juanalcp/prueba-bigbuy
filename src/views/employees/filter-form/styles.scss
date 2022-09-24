@@ -1,0 +1,46 @@
+@import "assets/theme/sizes.scss";
+
+.filter-form {
+  width: 100%;
+  &__input-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+
+    input {
+      background: #ffffff;
+      box-shadow: 0px 3px 10px rgba(216, 216, 216, 0.6);
+      border-radius: 4px;
+      background-image: url("/assets/images/search.svg");
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      padding-left: 40px;
+    }
+
+    button {
+      @include p-medium;
+      background-color: #0090ff;
+      border-radius: 4px;
+      border: none;
+      color: white;
+      height: 38px;
+      padding: 9px 15px;
+    }
+  }
+}
+
+@mixin search-place-holder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.place-holder-container {
+  @include search-place-holder;
+  display: flex;
+  flex-direction: row;
+  padding: 9px 10px;
+  gap: 10px;
+}

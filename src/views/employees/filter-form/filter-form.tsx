@@ -1,19 +1,9 @@
-import { Icon } from "components";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import esEs from "constants/es-Es.json";
 
-import search from "assets/images/search.svg";
-
-const FilterPlaceHolder = () => {
-  return (
-    <div className="place-holder-container ">
-      <Icon src={search} />
-      {esEs["employees.input.search.placeholder"]}
-    </div>
-  );
-};
+import "./styles.scss";
 
 const FilterForm = ({ handleFilter }: FormProps) => (
   <Form

@@ -1,4 +1,5 @@
 import FilterForm from "./filter-form";
+import AddEmployeeButton from "./add-employee";
 import { Card } from "components";
 
 import "./styles.scss";
@@ -9,8 +10,9 @@ const Employees = () => {
   };
 
   return (
-    <Card className="card">
+    <Card className="employee-card">
       <FilterForm handleFilter={onFilter} />
+      <AddEmployeeButton />
     </Card>
   );
 };
