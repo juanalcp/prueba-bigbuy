@@ -1,0 +1,19 @@
+@import "assets/theme/sizes.scss";
+
+.employee-list {
+  &__header {
+    th {
+      @include l-medium;
+    }
+  }
+
+  td {
+    @include p-regular;
+  }
+}
+
+.footer-list {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
