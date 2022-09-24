@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Table from "react-bootstrap/Table";
 import Row from "./employee-row";
-import RowsSelect from "./pagination-select";
+import RowsSelect from "./rows-select";
 
 import Props from "./types";
 
@@ -34,6 +34,7 @@ const EmployeeList = ({ employees }: Props) => {
       <div className="footer-list">
         <RowsSelect numberRows={numberRows} setNumberRows={setNumberRows} />
       </div>
+      <div>Aquí va la paginación</div>
     </>
   );
 };

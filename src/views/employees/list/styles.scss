@@ -25,6 +25,16 @@
 
 .footer-list {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background: #f1f2f3 !important;
+  }
 }
