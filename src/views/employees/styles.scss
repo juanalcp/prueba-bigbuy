@@ -1,0 +1,23 @@
+.main-container {
+  height: calc(100vh - 112px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 16px;
+  background-color: #f1f2f3;
+
+  &__card {
+    width: 95%;
+    .filter-form {
+      width: 100%;
+
+      &__input-button-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px 15px;
+        gap: 16px;
+      }
+    }
+  }
+}
