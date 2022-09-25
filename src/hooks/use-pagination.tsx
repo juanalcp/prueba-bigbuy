@@ -41,7 +41,7 @@ const usePagination = ({
     );
   };
 
-  const getPages = (): React.ReactNode[] => {
+  const getButtons = (): React.ReactNode[] => {
     let numberPages: number[] = [];
 
     if (currentPage === 1) {
@@ -80,6 +80,6 @@ const usePagination = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numberRows]);
 
-  return { getPages, handleIncrementPage, handleDecrementPage };
+  return { getPages: getButtons, handleIncrementPage, handleDecrementPage };
 };
 export default usePagination;
