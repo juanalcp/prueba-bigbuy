@@ -7,7 +7,7 @@ import deleteIcon from "assets/images/delete.svg";
 
 const Row = ({ employee }: RowProps) => {
   return (
-    <tr>
+    <tr key={employee.id}>
       <td>
         <div>{employee.name}</div>
       </td>

@@ -6,7 +6,10 @@ import RowsSelect from "./rows-select";
 
 import Props from "./types";
 
+import esEs from "constants/es-Es.json";
+
 import "./styles.scss";
+import Pagination from "./pagination";
 
 const EmployeeList = ({ employees }: Props) => {
   const [offset, setOffset] = useState<number>(0);
@@ -14,15 +17,21 @@ const EmployeeList = ({ employees }: Props) => {
 
   let currentEmployees = [...employees].slice(offset, offset + numberRows);
 
+  console.log(employees.length);
+
+  const handleChangePage = (page: number) => {
+    setOffset((page - 1) * numberRows);
+  };
+
   return (
     <>
       <Table className="employee-list">
         <thead>
           <tr className="employee-list__header">
-            <th>NOMBRE</th>
-            <th>EDAD</th>
-            <th>SALARIO</th>
-            <th>ACCIONES</th>
+            <th>{esEs["employees.table.column.name"]}</th>
+            <th>{esEs["employees.table.column.age"]}</th>
+            <th>{esEs["employees.table.column.salary"]}</th>
+            <th>{esEs["employees.table.column.actions"]}</th>
           </tr>
         </thead>
         <tbody>
@@ -34,7 +43,11 @@ const EmployeeList = ({ employees }: Props) => {
       <div className="footer-list">
         <RowsSelect numberRows={numberRows} setNumberRows={setNumberRows} />
       </div>
-      <div>Aquí va la paginación</div>
+      <Pagination
+        numberElements={employees.length}
+        numberRows={numberRows}
+        onChange={handleChangePage}
+      />
     </>
   );
 };

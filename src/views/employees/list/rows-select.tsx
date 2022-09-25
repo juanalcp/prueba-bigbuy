@@ -1,5 +1,5 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import { PaginationProps as Props } from "./types";
+import { SelectProps as Props } from "./types";
 
 import "./styles.scss";
 
