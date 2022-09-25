@@ -1,5 +1,12 @@
 @import "assets/theme/sizes.scss";
 
+.no-items {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
 .employee-list {
   &__header {
     th {

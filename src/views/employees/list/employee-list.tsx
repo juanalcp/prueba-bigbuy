@@ -23,7 +23,7 @@ const EmployeeList = () => {
   };
 
   if (employees.length === 0) {
-    return <>{"NO HAY EMPLEADOS"}</>;
+    return <div className="no-items">{"No hay empleados para ese filtro"}</div>;
   }
 
   return (
