@@ -1,7 +1,8 @@
 {
-  "employees.input.search.placeholder": "Search...",
-  "employees.table.column.name": "NOMBRE",
-  "employees.table.column.age": "EDAD",
-  "employees.table.column.salary": "SALARIO",
-  "employees.table.column.actions": "ACCIONES"
+  "employees.input.search.placeholder": "Buscar...",
+  "employees.table.column.name": "Nombre",
+  "employees.table.column.age": "Edad",
+  "employees.table.column.salary": "Salario",
+  "employees.table.column.actions": "Acciones",
+  "employees.table.column.email": "Email"
 }

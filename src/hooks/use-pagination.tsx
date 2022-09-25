@@ -7,7 +7,7 @@ import { UsePaginationProps } from "./types";
 const usePagination = ({
   onChange,
   numberElements,
-  numberRows
+  numberRows,
 }: UsePaginationProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const pages =
@@ -27,7 +27,7 @@ const usePagination = ({
   };
 
   const handleIncrementPage = () => {
-    if (currentPage < pages) {
+    if (currentPage < pages - 1) {
       setPage(currentPage + 1);
     }
   };
@@ -56,14 +56,14 @@ const usePagination = ({
             currentPage - 1,
             currentPage,
             currentPage + 1,
-            currentPage + 2
+            currentPage + 2,
           ];
         } else {
           numberPages = [
             currentPage - 2,
             currentPage - 1,
             currentPage,
-            currentPage + 1
+            currentPage + 1,
           ];
         }
       }

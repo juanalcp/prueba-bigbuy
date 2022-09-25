@@ -4,8 +4,10 @@ import { Button, Form, Modal } from "react-bootstrap";
 
 import EmployeeContext from "contexts/employees-context";
 
-import { NewEmployee } from "@types";
 import Props from "./types";
+import { NewEmployee } from "@types";
+
+import esEs from "constants/es-Es.json";
 
 const EmployeeModal = ({ show, handleClose, values }: Props) => {
   const isDisabled = !!values;
@@ -18,7 +20,7 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
         name: values?.nombre.value,
         age: values?.edad.value,
         email: values?.email.value,
-        salary: values?.salario.value
+        salary: values?.salario.value,
       };
       addEmployee(employee);
     }
@@ -26,43 +28,45 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header>
-        <Modal.Title>Añadir empleado</Modal.Title>
+        <Modal.Title>
+          {!isDisabled ? "Añadir empleado" : "Descripción"}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form className="create-employee-form" name="add-employee">
-          <Form.Group>
-            <Form.Label>Nombre</Form.Label>
+        <Form name="add-employee">
+          <Form.Group className="mb-3">
+            <Form.Label>{esEs["employees.table.column.name"]}</Form.Label>
             <Form.Control
               defaultValue={values?.name}
               disabled={isDisabled}
               name="nombre"
-            ></Form.Control>
+            />
           </Form.Group>
-          <Form.Group>
-            <Form.Label>Edad</Form.Label>
+          <Form.Group className="mb-3">
+            <Form.Label>{esEs["employees.table.column.age"]}</Form.Label>
             <Form.Control
               defaultValue={values?.age}
               disabled={isDisabled}
               name="edad"
-            ></Form.Control>
+            />
           </Form.Group>
-          <Form.Group>
-            <Form.Label>Email</Form.Label>
+          <Form.Group className="mb-3">
+            <Form.Label>{esEs["employees.table.column.email"]}</Form.Label>
             <Form.Control
               defaultValue={values?.email}
               disabled={isDisabled}
               name="email"
-            ></Form.Control>
+            />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Salario</Form.Label>
+            <Form.Label>{esEs["employees.table.column.salary"]}</Form.Label>
             <Form.Control
-              defaultValue={values?.salary}
+              defaultValue={values ? `${values?.salary} €` : ""}
               disabled={isDisabled}
               name="salario"
-            ></Form.Control>
+            />
           </Form.Group>
         </Form>
       </Modal.Body>

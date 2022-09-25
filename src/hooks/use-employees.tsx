@@ -1,26 +1,42 @@
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useEffect } from "react";
 
 import EmployeeContext from "contexts/employees-context";
 
 import { getEmployees } from "domain/repository/operations";
 
-import { Employee, NewEmployee } from "@types";
+import { applyFilters } from "utils/filter-interpreter";
+
+import { Employee, NewEmployee, Filter } from "@types";
 
 const useEmployees = () => {
-  //Hay que mantener los totales pero no del archivo.
   const [employees, setEmployees] = useState<Employee[]>(getEmployees());
+  const [filters, setFilters] = useState<Filter[]>([]);
+  const [filteredEmployees, setFilteredEmployees] =
+    useState<Employee[]>(employees);
   const [isFiltered, setIsFiltered] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (filters.length && employees.length) {
+      setFilteredEmployees(applyFilters(filters, employees));
+      setIsFiltered(true);
+    }
+  }, [filters, employees]);
+
   const resetFilters = () => {
-    setEmployees(getEmployees());
+    setFilteredEmployees(employees);
+    setFilters([]);
     setIsFiltered(false);
   };
 
   const deleteEmployee = (id: number) => {
     if (window.confirm("¿Estás seguro de querer eliminar el empleado?")) {
-      setEmployees((employees) =>
-        employees.filter((employee) => employee.id !== id)
+      const newListEmployees = employees.filter(
+        (employee) => employee.id !== id
       );
+      setEmployees(newListEmployees);
+      if (!isFiltered) {
+        setFilteredEmployees(newListEmployees);
+      }
     }
   };
 
@@ -30,58 +46,44 @@ const useEmployees = () => {
   };
 
   const getEmployee = (id: number) => {
-    return employees.find((employee) => employee.id === id);
+    return filteredEmployees.find((employee) => employee.id === id);
   };
 
-  const onFilterSalary = (min: number, max: number) => {
-    setEmployees((employees) =>
-      employees.filter(
-        (employee) => employee.salary >= min && employee.salary <= max
-      )
-    );
+  const onFilterSalary = (range: string) => {
+    setFilters((x) => [...x, { type: "salary", value: range }]);
   };
 
-  const onFilterAge = (age: number) => {
-    setEmployees((employees) =>
-      employees.filter((employee) => employee.age === age)
-    );
+  const onFilterAge = (age: string) => {
+    setFilters((x) => [...x, { type: "age", value: age }]);
   };
 
   const onFilterNameOrEmail = (filter: string) => {
-    setEmployees((employees) =>
-      employees.filter(
-        (employee) =>
-          employee.email.toLowerCase().trim().includes(filter) ||
-          employee.name.toLowerCase().trim().includes(filter)
-      )
-    );
+    setFilters((x) => [...x, { type: "name-email", value: filter }]);
   };
 
   const onFilter = (filter: string) => {
     const parsedFilter = filter.trim().toLowerCase();
     if (parsedFilter.includes("-")) {
-      const [min, max] = parsedFilter.split("-");
-      onFilterSalary(Number(min), Number(max));
+      onFilterSalary(parsedFilter);
     } else {
       if (!isNaN(Number(parsedFilter))) {
-        onFilterAge(Number(parsedFilter));
+        onFilterAge(parsedFilter);
       } else {
         onFilterNameOrEmail(parsedFilter);
       }
     }
-    setIsFiltered(true);
   };
 
   const Provider = ({ children }: { children: ReactNode }) => (
     <EmployeeContext.Provider
       value={{
-        employees,
+        employees: filteredEmployees,
         isFiltered,
         deleteEmployee,
         getEmployee,
         addEmployee,
         onFilter,
-        resetFilters
+        resetFilters,
       }}
     >
       {children}

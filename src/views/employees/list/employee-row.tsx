@@ -12,6 +12,9 @@ import { RowProps } from "./types";
 import detailsIcon from "assets/images/details.svg";
 import deleteIcon from "assets/images/delete.svg";
 
+const parseSalary = (salary: number): string =>
+  `${Math.round((salary * 12) / 1000)}K`;
+
 const Row = ({ employee }: RowProps) => {
   const { deleteEmployee } = useContext(EmployeeContext);
   const { handleClose, handleShow, shouldShowModal } = useShowModal();
@@ -26,7 +29,7 @@ const Row = ({ employee }: RowProps) => {
           <div>{employee.age}</div>
         </td>
         <td>
-          <div>{employee.salary}</div>
+          <div>{parseSalary(employee.salary)}</div>
         </td>
         <td>
           <div className="actions-cell">

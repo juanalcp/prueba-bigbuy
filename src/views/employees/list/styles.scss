@@ -11,6 +11,7 @@
   &__header {
     th {
       @include l-medium;
+      text-transform: uppercase;
     }
   }
 

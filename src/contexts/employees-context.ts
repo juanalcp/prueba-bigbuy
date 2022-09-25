@@ -10,7 +10,7 @@ const contextParams: EmployeesContextProps = {
   getEmployee: (id: number) => undefined,
   addEmployee: (employee: NewEmployee) => {},
   onFilter: (filter: string) => {},
-  resetFilters: () => {}
+  resetFilters: () => {},
 };
 
 const EmployeeContext = createContext(contextParams);

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -17,10 +17,6 @@ const FilterForm = () => {
     onFilter(filter);
   };
 
-  const handleResetFilter = (e: any) => {
-    resetFilters();
-  };
-
   return (
     <Form
       className="filter-form"
@@ -35,7 +31,7 @@ const FilterForm = () => {
           onKeyDown={(e) => e.key === "Enter" && handleFilter()}
         />
         {isFiltered && (
-          <Button variant="warning" onClick={handleResetFilter}>
+          <Button variant="secondary" onClick={resetFilters}>
             {"Reiniciar"}
           </Button>
         )}

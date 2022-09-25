@@ -12,3 +12,10 @@ export type NewEmployee = {
   age: number;
   salary: number;
 };
+
+export type FilterType = "age" | "name-email" | "salary";
+
+export type Filter = {
+  type: "age" | "name-email" | "salary";
+  value: string;
+};
