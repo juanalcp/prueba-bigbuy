@@ -3,20 +3,17 @@ import AddEmployeeButton from "./add-employee";
 import EmployeeList from "./list";
 import { Card } from "components";
 
-import "./styles.scss";
 import useEmployees from "hooks/use-employees";
+
+import "./styles.scss";
 
 const Employees = () => {
   const EmployeeProvider = useEmployees();
 
-  const onFilter = () => {
-    console.log(document.forms.namedItem("filter")?.["filter-input"].value);
-  };
-
   return (
     <EmployeeProvider>
       <Card className="employee-card">
-        <FilterForm handleFilter={onFilter} />
+        <FilterForm />
         <AddEmployeeButton />
         <EmployeeList />
       </Card>

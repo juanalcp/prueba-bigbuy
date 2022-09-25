@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import Table from "react-bootstrap/Table";
 import Row from "./employee-row";
@@ -21,6 +21,10 @@ const EmployeeList = () => {
   const handleChangePage = (page: number) => {
     setOffset((page - 1) * numberRows);
   };
+
+  if (employees.length === 0) {
+    return <>{"NO HAY EMPLEADOS"}</>;
+  }
 
   return (
     <>
