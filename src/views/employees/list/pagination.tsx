@@ -1,7 +1,4 @@
-import { useState } from "react";
-
 import { Icon } from "components";
-import Button from "react-bootstrap/Button";
 
 import { PaginationProps as Props } from "./types";
 
@@ -15,7 +12,7 @@ const Pagination = ({ onChange, numberElements, numberRows }: Props) => {
   const { getPages, handleDecrementPage, handleIncrementPage } = usePagination({
     onChange,
     numberElements,
-    numberRows
+    numberRows,
   });
 
   return (

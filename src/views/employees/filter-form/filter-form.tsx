@@ -14,7 +14,9 @@ const FilterForm = () => {
 
   const handleFilter = (e?: any) => {
     const filter = document.forms.namedItem("filter")?.["filter-input"].value;
-    onFilter(filter);
+    if (filter) {
+      onFilter(filter);
+    }
   };
 
   return (

@@ -39,6 +39,7 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
           <Form.Group className="mb-3">
             <Form.Label>{esEs["employees.table.column.name"]}</Form.Label>
             <Form.Control
+              type="text"
               defaultValue={values?.name}
               disabled={isDisabled}
               name="nombre"
@@ -47,6 +48,7 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
           <Form.Group className="mb-3">
             <Form.Label>{esEs["employees.table.column.age"]}</Form.Label>
             <Form.Control
+              type="number"
               defaultValue={values?.age}
               disabled={isDisabled}
               name="edad"
@@ -55,6 +57,7 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
           <Form.Group className="mb-3">
             <Form.Label>{esEs["employees.table.column.email"]}</Form.Label>
             <Form.Control
+              type="email"
               defaultValue={values?.email}
               disabled={isDisabled}
               name="email"
@@ -63,6 +66,7 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
           <Form.Group>
             <Form.Label>{esEs["employees.table.column.salary"]}</Form.Label>
             <Form.Control
+              type="number"
               defaultValue={values ? `${values?.salary} €` : ""}
               disabled={isDisabled}
               name="salario"
