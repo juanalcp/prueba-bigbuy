@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Table from "react-bootstrap/Table";
 import Row from "./employee-row";
 import RowsSelect from "./rows-select";
+import Pagination from "./pagination";
 
-import Props from "./types";
+import EmployeeContext from "contexts/employees-context";
 
 import esEs from "constants/es-Es.json";
 
 import "./styles.scss";
-import Pagination from "./pagination";
 
-const EmployeeList = ({ employees }: Props) => {
+const EmployeeList = () => {
   const [offset, setOffset] = useState<number>(0);
   const [numberRows, setNumberRows] = useState<number>(5);
+  const { employees } = useContext(EmployeeContext);
 
   let currentEmployees = [...employees].slice(offset, offset + numberRows);
-
-  console.log(employees.length);
 
   const handleChangePage = (page: number) => {
     setOffset((page - 1) * numberRows);
