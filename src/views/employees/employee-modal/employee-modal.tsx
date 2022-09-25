@@ -16,11 +16,12 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
   const handleCreateEmployee = () => {
     const values = document.forms.namedItem("add-employee");
     if (values) {
+      console.log(values.nombre);
       const employee: NewEmployee = {
-        name: values?.nombre.value,
-        age: values?.edad.value,
-        email: values?.email.value,
-        salary: values?.salario.value,
+        name: values.nombre.value,
+        age: values.edad.value,
+        email: values.email.value,
+        salary: values.salario.value,
       };
       addEmployee(employee);
     }
@@ -31,7 +32,9 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header>
         <Modal.Title>
-          {!isDisabled ? "Añadir empleado" : "Descripción"}
+          {!isDisabled
+            ? esEs["employees.modal.title"]
+            : esEs["employees.modal.title2"]}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

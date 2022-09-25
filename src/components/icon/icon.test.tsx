@@ -1,7 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-import React from "react";
 import { render } from "@testing-library/react";
-import { Icon } from "../../src/components";
+import Icon from "./icon";
 import userEvent from "@testing-library/user-event";
 
 describe("icon", () => {

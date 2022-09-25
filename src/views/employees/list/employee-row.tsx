@@ -7,13 +7,17 @@ import useShowModal from "hooks/use-show-modal";
 
 import EmployeeContext from "contexts/employees-context";
 
+import esEs from "constants/es-Es.json";
+
 import { RowProps } from "./types";
 
 import detailsIcon from "assets/images/details.svg";
 import deleteIcon from "assets/images/delete.svg";
 
 const parseSalary = (salary: number): string =>
-  `${Math.round((salary * 12) / 1000)}K`;
+  salary
+    ? `${Math.round((salary * 12) / 1000)}K`
+    : esEs["employees.table.column.notDefined"];
 
 const Row = ({ employee }: RowProps) => {
   const { deleteEmployee } = useContext(EmployeeContext);

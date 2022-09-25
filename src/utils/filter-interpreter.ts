@@ -16,7 +16,11 @@ const onFilterNameEmail = (value: string, array: Employee[]) => {
 const onFilterSalary = (value: string, array: Employee[]) => {
   const [min, max] = value.split("-");
   return array.filter(
-    (item) => item.salary >= Number(min) && item.salary <= Number(max)
+    (item) =>
+      (item.salary &&
+        item.salary >= Number(min) &&
+        item.salary <= Number(max)) ||
+      !item.salary
   );
 };
 

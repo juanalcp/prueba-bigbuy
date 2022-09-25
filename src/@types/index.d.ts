@@ -3,14 +3,14 @@ export type Employee = {
   name: string;
   email: string;
   age: number;
-  salary: number;
+  salary: number | undefined;
 };
 
 export type NewEmployee = {
   name: string;
   email: string;
   age: number;
-  salary: number;
+  salary: number | undefined;
 };
 
 export type FilterType = "age" | "name-email" | "salary";

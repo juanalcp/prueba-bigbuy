@@ -34,11 +34,11 @@ const FilterForm = () => {
         />
         {isFiltered && (
           <Button variant="secondary" onClick={resetFilters}>
-            {"Reiniciar"}
+            {esEs["employees.filter.reset.title"]}
           </Button>
         )}
         <Button className={"filter-button"} onClick={handleFilter}>
-          {"Filtrar"}
+          {esEs["employees.filter.submit.title"]}
         </Button>
       </Form.Group>
     </Form>

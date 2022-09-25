@@ -44,27 +44,36 @@ const usePagination = ({
   const getButtons = (): React.ReactNode[] => {
     let numberPages: number[] = [];
 
-    if (currentPage === 1) {
-      numberPages = Array.from({ length: 4 }, (_, i) => i + 1);
+    if (pages < 4) {
+      for (let i = 1; i <= pages; i++) {
+        numberPages.push(i);
+      }
     } else {
-      if (currentPage === pages) {
-        const initialPage = pages - 4;
-        numberPages = Array.from({ length: 4 }, (_, i) => initialPage + i + 1);
+      if (currentPage === 1) {
+        numberPages = Array.from({ length: 4 }, (_, i) => i + 1);
       } else {
-        if (currentPage + 2 <= pages) {
-          numberPages = [
-            currentPage - 1,
-            currentPage,
-            currentPage + 1,
-            currentPage + 2,
-          ];
+        if (currentPage === pages) {
+          const initialPage = pages - 4;
+          numberPages = Array.from(
+            { length: 4 },
+            (_, i) => initialPage + i + 1
+          );
         } else {
-          numberPages = [
-            currentPage - 2,
-            currentPage - 1,
-            currentPage,
-            currentPage + 1,
-          ];
+          if (currentPage + 2 <= pages) {
+            numberPages = [
+              currentPage - 1,
+              currentPage,
+              currentPage + 1,
+              currentPage + 2,
+            ];
+          } else {
+            numberPages = [
+              currentPage - 2,
+              currentPage - 1,
+              currentPage,
+              currentPage + 1,
+            ];
+          }
         }
       }
     }

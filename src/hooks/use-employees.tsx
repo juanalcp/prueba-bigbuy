@@ -8,6 +8,8 @@ import { applyFilters } from "utils/filter-interpreter";
 
 import { Employee, NewEmployee, Filter } from "@types";
 
+import esEs from "constants/es-Es.json";
+
 const useEmployees = () => {
   const [employees, setEmployees] = useState<Employee[]>(getEmployees());
   const [filters, setFilters] = useState<Filter[]>([]);
@@ -29,7 +31,7 @@ const useEmployees = () => {
   };
 
   const deleteEmployee = (id: number) => {
-    if (window.confirm("¿Estás seguro de querer eliminar el empleado?")) {
+    if (window.confirm(esEs["employees.table.actions.deleteQuestion"])) {
       const newListEmployees = employees.filter(
         (employee) => employee.id !== id
       );

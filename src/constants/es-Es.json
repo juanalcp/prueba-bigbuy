@@ -4,5 +4,11 @@
   "employees.table.column.age": "Edad",
   "employees.table.column.salary": "Salario",
   "employees.table.column.actions": "Acciones",
-  "employees.table.column.email": "Email"
+  "employees.table.column.email": "Email",
+  "employees.table.column.notDefined": "No definido",
+  "employees.table.actions.deleteQuestion": "¿Estás seguro de querer eliminar el empleado?",
+  "employees.modal.title": "Añadir empleado",
+  "employees.modal.title2": "Descripción",
+  "employees.filter.reset.title": "Reiniciar",
+  "employees.filter.submit.title": "Filtrar"
 }
