@@ -18,7 +18,7 @@ No se han mostrado diseños del visualizar empleado y del añadir empleado.
 
 - Dado que se trata de un diseño "Mobile first" sólo se han aplicado estilados para la responsividad y por tanto se podría realizar un diseño más relacionado al entorno web de escritorio.
 - Otra posible mejora que se podría realizar sería la aparición de unos componentes que facilitasen el borrado de filtros uno a uno, esto se encuentra preparado, ya que se podría eliminar un filtro en concreto, sin embargo, no se ha creado componente para ello.
-- Añadir un sistema "Toast" que apòrte feedback al usuario de: eliminar empleado, añadir empleado, error en la introducción de datos.
+- Añadir un sistema "Toast" que aporte feedback al usuario de: eliminar empleado, añadir empleado, error en la introducción de datos.
 - Control de errores del usuario en formulario de creación de empleado.
 
 # Metodologías y tecnologías utilizadas
