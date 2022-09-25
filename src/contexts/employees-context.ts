@@ -7,7 +7,7 @@ const contextParams: EmployeesContextProps = {
   employees: [],
   isFiltered: false,
   deleteEmployee: (id: number) => {},
-  getEmployee: (id: number) => false,
+  getEmployee: (id: number) => undefined,
   addEmployee: (employee: NewEmployee) => {},
   onFilter: (filter: string) => {},
   resetFilters: () => {}

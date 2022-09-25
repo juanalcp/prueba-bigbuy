@@ -7,6 +7,7 @@ import { getEmployees } from "domain/repository/operations";
 import { Employee, NewEmployee } from "@types";
 
 const useEmployees = () => {
+  //Hay que mantener los totales pero no del archivo.
   const [employees, setEmployees] = useState<Employee[]>(getEmployees());
   const [isFiltered, setIsFiltered] = useState<boolean>(false);
 
@@ -29,8 +30,7 @@ const useEmployees = () => {
   };
 
   const getEmployee = (id: number) => {
-    console.log(employees.find((employee) => employee.id === id));
-    return employees.find((employee) => employee.id === id) ?? false;
+    return employees.find((employee) => employee.id === id);
   };
 
   const onFilterSalary = (min: number, max: number) => {
