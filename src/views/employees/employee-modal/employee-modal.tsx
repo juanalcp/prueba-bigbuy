@@ -16,7 +16,6 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
   const handleCreateEmployee = () => {
     const values = document.forms.namedItem("add-employee");
     if (values) {
-      console.log(values.nombre);
       const employee: NewEmployee = {
         name: values.nombre.value,
         age: values.edad.value,
@@ -28,6 +27,7 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
     handleClose();
   };
 
+  console.log(values?.salary ? `${values?.salary} €` : "");
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header>
@@ -69,8 +69,8 @@ const EmployeeModal = ({ show, handleClose, values }: Props) => {
           <Form.Group>
             <Form.Label>{esEs["employees.table.column.salary"]}</Form.Label>
             <Form.Control
-              type="number"
-              defaultValue={values ? `${values?.salary} €` : ""}
+              type={values?.salary ? "text" : "number"}
+              defaultValue={values?.salary ? `${values?.salary} €` : ""}
               disabled={isDisabled}
               name="salario"
             />
